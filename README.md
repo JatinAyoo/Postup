@@ -4,11 +4,11 @@ Project Features
 Welcome to our project! Here is a detailed overview of the functionalities available:
 
 ->User Authentication
-    User can sign up using Email by OTP verification.
-    JWT tokens used for authentication in protected routes.
-    User can reset password by using Forgot Password on the login page.
-    Handle sessions and token expiration effectively.
-    Users can log out from their account using the logout option in the navbar.
+    ->User can sign up using Email by OTP verification.
+    ->JWT tokens used for authentication in protected routes.
+    ->User can reset password by using Forgot Password on the login page.
+    ->Handle sessions and token expiration effectively.
+    ->Users can log out from their account using the logout option in the navbar.
     
 ->Posts with Pagination
     Upon login, users are shown a list of posts.
