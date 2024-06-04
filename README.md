@@ -1,3 +1,5 @@
+Deployed Link: https://postup-chi.vercel.app/
+
 Project Features
 Welcome to our project! Here is a detailed overview of the functionalities available:
 
