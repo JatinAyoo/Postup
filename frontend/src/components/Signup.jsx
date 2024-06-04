@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import img from "../assets/4957136_4957136.jpg";
 import { sendOtp } from "../services/authAPI";
 import { setSignupData } from "../slices/authSlice";
+import { Link } from "react-router-dom";
 
 function SignupForm() {
   const navigate = useNavigate();
@@ -161,6 +162,11 @@ function SignupForm() {
                 >
                   Create Account
                 </button>
+                <div className="flex justify-center">
+                <p className="mt-1 max-w-max text-xs">
+                  Already have an account? <Link to="/login"> <span className=' text-blue-800'>Login</span></Link>
+                </p>
+              </div>
               </form>
             </div>
             <div className="hidden md:block md:w-1/2">

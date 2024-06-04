@@ -1,40 +1,38 @@
 import React, { useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import img from "../assets/12146011_Wavy_Gen-01_Single-07.jpg";
-import { useDispatch } from 'react-redux';
 import { login } from '../services/authAPI';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-  })
+  });
 
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
 
-  const { email, password } = formData
-
+  const { email, password } = formData;
   const { loading } = useSelector((state) => state.auth);
 
   const handleOnChange = (e) => {
     setFormData((prevData) => ({
       ...prevData,
       [e.target.name]: e.target.value,
-    }))
-  }
+    }));
+  };
 
   const handleOnSubmit = (e) => {
-    e.preventDefault()
-    dispatch(login(email, password, navigate))
-  }
+    e.preventDefault();
+    dispatch(login(email, password, navigate));
+  };
 
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-custom-gradient">
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-custom-gradient">
       {loading ? (
         <div className="spinner"></div>
       ) : (
@@ -46,13 +44,7 @@ const Login = () => {
                 Welcome Back to Postup! Enter using your email.
               </p>
 
-              {/* <p className="text-gray-400 mb-3">
-                Demo Account : demo@gmail.com
-                Password: 1234
-              </p> */}
-
               <form onSubmit={handleOnSubmit} className="space-y-4">
-
                 <div>
                   <label className="block text-sm font-medium text-gray-700">
                     Email Address <span className="text-red-500">*</span>
@@ -92,10 +84,10 @@ const Login = () => {
                     )}
                   </span>
                   <Link to="/forgot-password">
-          <p className="mt-1 mr-auto max-w-max text-xs text-blue-800">
-            Forgot Password
-          </p>
-        </Link>
+                    <p className="mt-1 mr-auto max-w-max text-xs text-blue-800">
+                      Forgot Password
+                    </p>
+                  </Link>
                 </div>
 
                 <button
@@ -105,6 +97,11 @@ const Login = () => {
                   Log In
                 </button>
               </form>
+              <div className="flex justify-center mt-2">
+                <p className="mt-2 max-w-max text-xs">
+                  Not Registered yet? <Link to="/signup"> <span className=' text-blue-800'>Signup</span></Link>
+                </p>
+              </div>
             </div>
             <div className="hidden md:block md:w-1/2">
               <img src={img} alt="Signup" className="rounded-lg mt-[22%]" />
@@ -113,7 +110,7 @@ const Login = () => {
         </div>
       )}
     </div>
-    );
+  );
 };
 
 export default Login;
