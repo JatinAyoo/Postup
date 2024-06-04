@@ -43,13 +43,13 @@ function VerifyMail() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-3.5rem)] grid place-items-center">
+    <div className="min-h-[calc(100vh-3.5rem)] grid place-items-center bg-custom-gradient" >
       {loading ? (
         <div>
           <div className="spinner"></div>
         </div>
       ) : (
-        <div className="max-w-[500px] p-4 lg:p-8">
+        <div className="max-w-[500px] p-4 lg:p-8 bg-white rounded-lg shadow-md">
           <h1 className="text-richblack-5 font-semibold text-[1.875rem] leading-[2.375rem]">
             Email Verification
           </h1>
@@ -68,7 +68,7 @@ function VerifyMail() {
                   style={{
                     boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
                   }}
-                  className="w-[48px] lg:w-[60px] border-0 bg-richblack-800 rounded-[0.5rem] text-richblack-5 aspect-square text-center focus:border-0 focus:outline-2 focus:outline-yellow-50"
+                  className="w-[48px] lg:w-[60px] border-0 bg-richblack-800 rounded-[0.5rem] text-richblack-10 aspect-square text-center focus:border-0 focus:outline-2 focus:outline-blue-400"
                 />
               )}
               containerStyle={{
@@ -78,7 +78,7 @@ function VerifyMail() {
             />
             <button
               type="submit"
-              className="w-full bg-yellow-50 py-[12px] px-[12px] rounded-[8px] mt-6 font-medium text-richblack-900"
+              className="mt-6 w-full py-2 px-4 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
             >
               Verify
             </button>
@@ -90,7 +90,7 @@ function VerifyMail() {
               </p>
             </Link>
             <button
-              className="flex items-center text-blue-100 gap-x-2"
+              className="flex items-center text-blue-600 gap-x-2"
               onClick={() => dispatch(sendOtp(signupData.email))}
             >
               <RxCountdownTimer />
