@@ -34,7 +34,11 @@ const Navbar = () => {
   };
 
   const toggleSidebar = () => {
+    if(!sidebarOpen){
+      setDropdownOpen(false)
+    }
     setSidebarOpen(!sidebarOpen);
+
   };
 
   return (
@@ -127,7 +131,7 @@ const Navbar = () => {
       {sidebarOpen && (
         <div className="fixed inset-0 flex justify-end z-50">
           <div className="fixed inset-0 bg-black opacity-50" onClick={toggleSidebar}></div>
-          <div className="relative w-64 bg-white dark:bg-gray-700 p-4">
+          <div className="relative w-56 bg-white dark:bg-gray-700 p-4">
             <button className="absolute top-4 right-4" onClick={toggleSidebar}>
               <svg className="w-6 h-6 text-gray-800 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -135,27 +139,32 @@ const Navbar = () => {
             </button>
             <ul className="space-y-4">
               <li>
-                <Link to="/" className="block py-2 px-3 text-gray-900 dark:text-white" onClick={toggleSidebar}>Home</Link>
+                <Link to="/" className="block py-2 px-3 text-gray-900 dark:text-white  hover:text-blue-500" onClick={toggleSidebar}>Home</Link>
               </li>
               {!LoggedIn ? (
                 <>
                   <li>
-                    <Link to="/signup" className="block py-2 px-3 text-gray-700 dark:text-white" onClick={toggleSidebar}>SignUp</Link>
+                    <Link to="/signup" className="block py-2 px-3 text-gray-700 dark:text-white  hover:text-blue-500" onClick={toggleSidebar}>SignUp</Link>
                   </li>
                   <li>
-                    <Link to="/login" className="block py-2 px-3 text-gray-900 dark:text-white" onClick={toggleSidebar}>SignIn</Link>
+                    <Link to="/login" className="block py-2 px-3 text-gray-900 dark:text-white  hover:text-blue-500" onClick={toggleSidebar}>SignIn</Link>
                   </li>
                 </>
               ) : null}
               <li>
-                <Link to="/features" className="block py-2 px-3 text-gray-700 dark:text-white" onClick={toggleSidebar}>Features</Link>
+                <Link to="/features" className="block py-2 px-3 text-gray-700 dark:text-white  hover:text-blue-500" onClick={toggleSidebar}>Features</Link>
               </li>
               <li>
-                <Link to="/contact" className="block py-2 px-3 text-gray-900 dark:text-white" onClick={toggleSidebar}>Contact</Link>
+                <Link to="/contact" className="block py-2 px-3 text-gray-900 dark:text-white  hover:text-blue-500" onClick={toggleSidebar}>Contact</Link>
               </li>
               {LoggedIn ? (
                 <li>
-                  <Link to="/my-posts" className="block py-2 px-3 text-gray-700 dark:text-white" onClick={toggleSidebar}>My Posts</Link>
+                  <Link to="/my-posts" className="block py-2 px-3 text-gray-700 dark:text-white  hover:text-blue-500" onClick={toggleSidebar}>My Posts</Link>
+                </li>
+              ) : null}
+              {LoggedIn ? (
+                <li>
+                  <Link to="/saved-posts" className="block py-2 px-3 text-gray-700 dark:text-white hover:text-blue-500" onClick={toggleSidebar}>Saved Posts</Link>
                 </li>
               ) : null}
             </ul>
